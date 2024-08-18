@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import MaxWidthContainer from "./MaxWidthContainer";
 
 const navigation = [{ label: "Shop", href: "/shop" }];
@@ -8,7 +9,9 @@ const Header = () => {
       <MaxWidthContainer>
         {/* Mobile Header */}
         <div className="flex items-center justify-between p-4 md:hidden">
-          <div className="text-2xl font-bold text-blue-600">Logo</div>
+          <Link to="/" className="text-2xl font-bold text-blue-">
+            RCommerce
+          </Link>
 
           {/* Navigation */}
           <ul className="flex items-center space-x-4">
@@ -47,20 +50,16 @@ const Header = () => {
         </div>
 
         {/* Desktop Header */}
-        <div className="items-center justify-between hidden p-6 md:flex">
-          {/* Logo */}
-          <div className="text-3xl font-bold text-blue-600">Logo</div>
-
-          {/* Navigation */}
+        <div className="items-center justify-between hidden p-4 md:flex">
+          <Link to="/" className="text-3xl font-bold text-blue-600">
+            Logo
+          </Link>
           <ul className="flex items-center space-x-8">
             {navigation.map((nav) => (
               <li key={nav.label}>
-                <a
-                  href={nav.href}
-                  className="text-gray-700 hover:text-blue-600"
-                >
+                <Link to={nav.href} className="link">
                   {nav.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
@@ -69,7 +68,7 @@ const Header = () => {
           <div className="flex items-center space-x-6">
             <button className="text-gray-700 hover:text-blue-600">
               {/* Cart Icon Placeholder */}
-              <svg
+              {/* <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="w-6 h-6"
                 fill="none"
@@ -82,7 +81,8 @@ const Header = () => {
                   strokeLinejoin="round"
                   d="M3 3h2l.4 2M7 13h10l1.4-8H6.4M7 13l-1.5 6h11L17 13M7 13h10M7 13l1.4-8H6.4M7 13h10M5 21h14a1 1 0 001-1H4a1 1 0 001 1z"
                 />
-              </svg>
+              </svg> */}
+              My Cart
             </button>
           </div>
         </div>

@@ -1,39 +1,14 @@
-import { Link, useLocation } from "react-router-dom";
-import MaxWidthContainer from "./MaxWidthContainer";
+import { Link } from "react-router-dom";
+import { toast } from "sonner";
 import Button from "./Button";
 import Logo from "./Logo";
-import { cn } from "../lib/utils";
-
-type NavigationItem = {
-  label: string;
-  href: string;
-};
+import MaxWidthContainer from "./MaxWidthContainer";
+import NavigationMenu, { NavigationItem } from "./NavigationMenu";
 
 const navigation: NavigationItem[] = [
   { label: "Shop", href: "/shop" },
   { label: "About", href: "/about" },
 ];
-
-const NavigationMenu = ({ data }: { data: NavigationItem[] }) => {
-  const { pathname } = useLocation();
-
-  return (
-    <ul className="flex items-center space-x-8">
-      {data.map((nav) => (
-        <li key={nav.label}>
-          <Link
-            to={nav.href}
-            className={cn("font-semibold", {
-              "link-active font-bold": pathname === nav.href,
-            })}
-          >
-            {nav.label}
-          </Link>
-        </li>
-      ))}
-    </ul>
-  );
-};
 
 const Header = () => {
   return (
@@ -87,9 +62,9 @@ const Header = () => {
             <Logo />
             <NavigationMenu data={navigation} />
           </div>
-          {/* Actions */}
-          <div className="flex items-center space-x-6">
-            <Button>My Cart (2)</Button>
+          <div className="flex items-center space-x-2">
+            <Button onClick={() => toast.success("success")}>Cart (2)</Button>
+            <Button>Sign In</Button>
           </div>
         </div>
       </MaxWidthContainer>

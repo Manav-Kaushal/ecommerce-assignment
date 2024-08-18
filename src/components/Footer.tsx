@@ -1,3 +1,5 @@
+import Logo from "./Logo";
+
 const Footer = () => {
   return (
     <footer className="py-8 text-white bg-gray-800">
@@ -6,7 +8,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           {/* Column 1: Logo and description */}
           <div>
-            <h1 className="mb-4 text-2xl font-bold">Your Logo</h1>
+            <Logo className="text-white hover:text-blue" />
             <p className="text-gray-400">
               Bringing you the best products for all your needs. Quality and
               affordability in one place.
@@ -45,7 +47,6 @@ const Footer = () => {
             <h2 className="mb-4 text-xl font-semibold">Follow Us</h2>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-400 hover:text-white">
-                {/* Facebook Icon */}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="w-6 h-6"

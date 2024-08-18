@@ -1,30 +1,56 @@
-import { ReactNode } from "react";
+import { forwardRef, ReactNode } from "react";
 import { cn } from "../lib/utils";
 
 type Size = "small" | "medium" | "large";
+type Variant = "primary" | "secondary";
 
 type Props = {
   children: ReactNode;
   size?: Size;
-};
+  variant?: Variant;
+  disabled?: boolean;
+} & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 const Sizes = {
-  small: "px-4 py-1.5 text-sm",
-  medium: "px-4 py-1.5 text-sm",
-  large: "px-4 py-1.5 text-sm",
+  small: "px-3 py-1 text-sm",
+  medium: "px-4 py-2 text-base",
+  large: "px-5 py-3 text-lg",
 };
 
-const Button = ({ children, size = "medium" }: Props) => {
-  return (
-    <button
-      className={cn(
-        "inline-flex items-center space-x-2 font-medium text-white transition-all duration-200 bg-blue-600 border border-blue-600 rounded hover:bg-blue-500 focus:outline-none focus:ring",
-        Sizes[size]
-      )}
-    >
-      {children}
-    </button>
-  );
+const Variants = {
+  primary: "bg-blue-600 border border-blue-600 text-white hover:bg-blue-500",
+  secondary: "bg-gray-600 border border-gray-600 text-white hover:bg-gray-500",
 };
+
+const Button = forwardRef<HTMLButtonElement, Props>(
+  (
+    {
+      children,
+      size = "medium",
+      variant = "primary",
+      disabled = false,
+      ...props
+    },
+    ref
+  ) => {
+    return (
+      <button
+        ref={ref}
+        disabled={disabled}
+        className={cn(
+          "inline-flex items-center justify-center space-x-2 font-medium transition-all duration-200 rounded focus:outline-none focus:ring",
+          Sizes[size],
+          Variants[variant],
+          disabled && "opacity-50 cursor-not-allowed"
+        )}
+        {...props}
+      >
+        {children}
+      </button>
+    );
+  }
+);
+
+Button.displayName = "Button";
 
 export default Button;

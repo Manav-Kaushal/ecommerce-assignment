@@ -8,5 +8,8 @@
 }
 
 a {
-  @apply text-gray-700 hover:text-blue-600 transition-all duration-200;
+  @apply text-gray-700 hover:text-blue-600 transition-all duration-200 text-base;
+}
+.link-active {
+  @apply text-blue-600;
 }

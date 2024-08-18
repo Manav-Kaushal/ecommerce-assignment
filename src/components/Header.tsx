@@ -1,7 +1,39 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import MaxWidthContainer from "./MaxWidthContainer";
+import Button from "./Button";
+import Logo from "./Logo";
+import { cn } from "../lib/utils";
 
-const navigation = [{ label: "Shop", href: "/shop" }];
+type NavigationItem = {
+  label: string;
+  href: string;
+};
+
+const navigation: NavigationItem[] = [
+  { label: "Shop", href: "/shop" },
+  { label: "About", href: "/about" },
+];
+
+const NavigationMenu = ({ data }: { data: NavigationItem[] }) => {
+  const { pathname } = useLocation();
+
+  return (
+    <ul className="flex items-center space-x-8">
+      {data.map((nav) => (
+        <li key={nav.label}>
+          <Link
+            to={nav.href}
+            className={cn("font-semibold", {
+              "link-active font-bold": pathname === nav.href,
+            })}
+          >
+            {nav.label}
+          </Link>
+        </li>
+      ))}
+    </ul>
+  );
+};
 
 const Header = () => {
   return (
@@ -50,40 +82,14 @@ const Header = () => {
         </div>
 
         {/* Desktop Header */}
-        <div className="items-center justify-between hidden p-4 md:flex">
-          <Link to="/" className="text-3xl font-bold text-blue-600">
-            Logo
-          </Link>
-          <ul className="flex items-center space-x-8">
-            {navigation.map((nav) => (
-              <li key={nav.label}>
-                <Link to={nav.href} className="link">
-                  {nav.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-
+        <div className="items-center justify-between hidden p-2 md:flex">
+          <div className="flex items-center space-x-4">
+            <Logo />
+            <NavigationMenu data={navigation} />
+          </div>
           {/* Actions */}
           <div className="flex items-center space-x-6">
-            <button className="text-gray-700 hover:text-blue-600">
-              {/* Cart Icon Placeholder */}
-              {/* <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-6 h-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M3 3h2l.4 2M7 13h10l1.4-8H6.4M7 13l-1.5 6h11L17 13M7 13h10M7 13l1.4-8H6.4M7 13h10M5 21h14a1 1 0 001-1H4a1 1 0 001 1z"
-                />
-              </svg> */}
-              My Cart
-            </button>
+            <Button>My Cart (2)</Button>
           </div>
         </div>
       </MaxWidthContainer>

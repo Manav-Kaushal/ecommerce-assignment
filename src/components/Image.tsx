@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { cn } from "../lib/utils";
 
 type ImageProps = {
   src: string;
@@ -39,15 +40,19 @@ const Image = ({
       alt={alt}
       width={width}
       height={height}
-      className={`${className} ${
-        imageLoaded ? "opacity-100" : "opacity-0"
-      } transition-opacity duration-500`}
+      className={cn(
+        "transition-opacity duration-500 object-cover",
+        {
+          "opacity-100": imageLoaded,
+          "opacity-0": !imageLoaded,
+        },
+        className
+      )}
       srcSet={srcSet}
       sizes={sizes}
       loading={loading}
       onLoad={handleImageLoad}
       onError={() => setImageSrc(placeholderSrc || "")}
-      style={{ objectFit: "cover" }}
     />
   );
 };

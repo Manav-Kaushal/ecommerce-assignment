@@ -18,8 +18,10 @@ const Sizes = {
 };
 
 const Variants = {
-  primary: "bg-blue-600 border border-blue-600 text-white hover:bg-blue-500",
-  secondary: "bg-gray-600 border border-gray-600 text-white hover:bg-gray-500",
+  primary:
+    "bg-blue-600 border border-blue-600 text-white hover:bg-blue-500 ring-blue-500",
+  secondary:
+    "bg-gray-600 border border-gray-600 text-white hover:bg-gray-500 ring-gray-500",
 };
 
 const Button = forwardRef<HTMLButtonElement, Props>(
@@ -29,6 +31,7 @@ const Button = forwardRef<HTMLButtonElement, Props>(
       size = "medium",
       variant = "primary",
       disabled = false,
+      className,
       ...props
     },
     ref
@@ -41,7 +44,8 @@ const Button = forwardRef<HTMLButtonElement, Props>(
           "inline-flex items-center justify-center space-x-2 font-medium transition-all duration-200 rounded focus:outline-none focus:ring",
           Sizes[size],
           Variants[variant],
-          disabled && "opacity-50 cursor-not-allowed"
+          disabled && "opacity-50 cursor-not-allowed",
+          className
         )}
         {...props}
       >

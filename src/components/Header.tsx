@@ -1,5 +1,7 @@
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { toast } from "sonner";
+import { RootState } from "../pages/Shop";
 import Button from "./Button";
 import Logo from "./Logo";
 import MaxWidthContainer from "./MaxWidthContainer";
@@ -11,6 +13,8 @@ const navigation: NavigationItem[] = [
 ];
 
 const Header = () => {
+  const cartItems = useSelector((state: RootState) => state.cart.items);
+
   return (
     <header className="bg-white shadow-md">
       <MaxWidthContainer>
@@ -63,7 +67,9 @@ const Header = () => {
             <NavigationMenu data={navigation} />
           </div>
           <div className="flex items-center space-x-2">
-            <Button onClick={() => toast.success("success")}>Cart (2)</Button>
+            <Button onClick={() => toast.success("success")}>
+              Cart ({cartItems.length})
+            </Button>
             <Button>Sign In</Button>
           </div>
         </div>

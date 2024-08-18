@@ -64,66 +64,6 @@ export const trendingProducts = [
       "https://tailwindui.com/img/ecommerce-images/home-page-04-trending-product-04.jpg",
     imageAlt: "Warm gray wool knit scarf.",
   },
-  {
-    id: 5,
-    name: "Classic Leather Boots",
-    color: "Brown",
-    price: "$150",
-    href: "#",
-    imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/home-page-04-trending-product-05.jpg",
-    imageAlt: "Brown leather boots with a classic design.",
-  },
-  {
-    id: 6,
-    name: "Cotton T-Shirt",
-    color: "White",
-    price: "$25",
-    href: "#",
-    imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/home-page-04-trending-product-06.jpg",
-    imageAlt: "Basic white cotton t-shirt.",
-  },
-  {
-    id: 7,
-    name: "Ribbed Beanie",
-    color: "Black",
-    price: "$20",
-    href: "#",
-    imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/home-page-04-trending-product-07.jpg",
-    imageAlt: "Warm black ribbed beanie.",
-  },
-  {
-    id: 8,
-    name: "Slim Fit Jeans",
-    color: "Dark Blue",
-    price: "$80",
-    href: "#",
-    imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/home-page-04-trending-product-08.jpg",
-    imageAlt: "Dark blue slim fit jeans.",
-  },
-  {
-    id: 9,
-    name: "Leather Belt",
-    color: "Tan",
-    price: "$40",
-    href: "#",
-    imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/home-page-04-trending-product-09.jpg",
-    imageAlt: "Classic tan leather belt.",
-  },
-  {
-    id: 10,
-    name: "Corduroy Cap",
-    color: "Olive",
-    price: "$30",
-    href: "#",
-    imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/home-page-04-trending-product-10.jpg",
-    imageAlt: "Olive green corduroy cap with adjustable strap.",
-  },
 ];
 
 export const perks = [

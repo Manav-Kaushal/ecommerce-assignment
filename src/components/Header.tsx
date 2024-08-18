@@ -1,19 +1,19 @@
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { toast } from "sonner";
+import { useDrawer } from "../lib/hooks/useDrawer";
 import { RootState } from "../pages/Shop";
 import Button from "./Button";
+import CartSummary from "./CartSummary";
+import Drawer from "./Drawer";
 import Logo from "./Logo";
 import MaxWidthContainer from "./MaxWidthContainer";
 import NavigationMenu, { NavigationItem } from "./NavigationMenu";
 
-const navigation: NavigationItem[] = [
-  { label: "Shop", href: "/shop" },
-  { label: "About", href: "/about" },
-];
+const navigation: NavigationItem[] = [{ label: "Shop", href: "/shop" }];
 
 const Header = () => {
   const cartItems = useSelector((state: RootState) => state.cart.items);
+  const { openDrawer } = useDrawer();
 
   return (
     <header className="bg-white shadow-md">
@@ -67,10 +67,17 @@ const Header = () => {
             <NavigationMenu data={navigation} />
           </div>
           <div className="flex items-center space-x-2">
-            <Button onClick={() => toast.success("success")}>
+            <Button
+              onClick={() => {
+                openDrawer(
+                  <Drawer>
+                    <CartSummary />
+                  </Drawer>
+                );
+              }}
+            >
               Cart ({cartItems.length})
             </Button>
-            <Button>Sign In</Button>
           </div>
         </div>
       </MaxWidthContainer>

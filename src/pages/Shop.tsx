@@ -1,31 +1,30 @@
-import { useDispatch, useSelector } from "react-redux";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { useDispatch } from "react-redux";
 import MaxWidthContainer from "../components/MaxWidthContainer";
 import PageHeader from "../components/PageHeader";
 import ProductCard from "../components/ProductCard";
-import { SingleProduct, useProductsContext } from "../contexts/productsContext";
+import {
+  CartItemInterface,
+  SingleProduct,
+  useProductsContext,
+} from "../contexts/productsContext";
 import { addToCart } from "../redux/cartSlice";
 import OurPerks from "./sections/OurPerks";
 
 export interface RootState {
   cart: {
-    items: {
-      id: number;
-      name: string;
-      price: number;
-      image: string;
-      quantity: number;
-    }[];
+    items: CartItemInterface[];
   };
 }
 
 const Shop = () => {
   const { products } = useProductsContext();
-  const cartItems = useSelector((state: RootState) => state.cart.items);
+  // const cartItems = useSelector((state: RootState) => state.cart.items);
 
   const dispatch = useDispatch();
 
   const handleAddToCart = (product: SingleProduct) => {
-    dispatch(addToCart(product));
+    dispatch(addToCart(product as any));
   };
 
   return (

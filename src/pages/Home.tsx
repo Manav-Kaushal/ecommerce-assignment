@@ -6,19 +6,20 @@ import OurPerks from "./sections/OurPerks";
 const Home = () => {
   return (
     <div>
-      <section className="relative overflow-hidden h-96">
+      <section className="relative overflow-hidden w-full aspect-[1] md:aspect-[16/8] lg:aspect-[16/5]">
         <Image
           src="https://tailwindui.com/img/ecommerce-images/home-page-04-hero-full-width.jpg"
           alt="banner"
+          className="h-full md:"
         />
         <div className="absolute inset-0 bg-gray-900/75" />
         <div className="absolute inset-0 z-10 flex items-center justify-center text-white">
-          <p className="text-5xl font-semibold">Mid-Season Sale</p>
+          <p className="text-4xl font-semibold md:text-5xl">Mid-Season Sale</p>
         </div>
       </section>
       <section className="-mt-28">
         <MaxWidthContainer>
-          <div className="flex items-center justify-between gap-x-8 ">
+          <div className="flex flex-col items-center justify-between gap-8 sm:flex-row ">
             {collections.map((c) => (
               <div
                 key={c.name}
@@ -27,8 +28,8 @@ const Home = () => {
                 <Image src={c.imageSrc} alt={c.imageAlt} />
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/50 group-hover:opacity-75" />
                 <div className="absolute text-white bottom-4 left-8">
-                  <p>Shop the collection</p>
-                  <p className="text-lg font-semibold">{c.name}</p>
+                  <p className="text-lg sm:text-base">Shop the collection</p>
+                  <p className="text-xl font-semibold sm:text-lg">{c.name}</p>
                 </div>
               </div>
             ))}

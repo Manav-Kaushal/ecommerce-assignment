@@ -7,14 +7,18 @@ import React, {
 } from "react";
 import api from "../lib/services/api";
 
-export type SingleProduct = {
+export interface SingleProduct {
   id: number;
   title: string;
   price: string;
   category: string;
   description: string;
   image: string;
-};
+}
+
+export interface CartItemInterface extends SingleProduct {
+  quantity: number;
+}
 
 const ProductsContext = React.createContext<{
   fetching: boolean;

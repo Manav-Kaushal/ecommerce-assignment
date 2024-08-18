@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import CartItem from "../components/CartItem";
@@ -38,7 +39,7 @@ const CartPage: React.FC = () => {
       {cartItems.map((item) => (
         <CartItem
           key={item.id}
-          item={item}
+          item={item as any}
           onRemove={handleRemove}
           onQuantityChange={handleQuantityChange}
         />

@@ -1,24 +1,91 @@
 import MaxWidthContainer from "./MaxWidthContainer";
 
-const navigation = [{ label: "shop", href: "/shop" }];
+const navigation = [{ label: "Shop", href: "/shop" }];
 
 const Header = () => {
   return (
-    <header>
+    <header className="bg-white shadow-md">
       <MaxWidthContainer>
         {/* Mobile Header */}
-        <div className="flex items-center justify-between">
-          {/* logo */}
-          {/* navigation */}
-          <ul className="flex items-center space-x-2">
+        <div className="flex items-center justify-between p-4 md:hidden">
+          <div className="text-2xl font-bold text-blue-600">Logo</div>
+
+          {/* Navigation */}
+          <ul className="flex items-center space-x-4">
             {navigation.map((nav) => (
-              <li key={nav.label}>{nav.label}</li>
+              <li key={nav.label}>
+                <a
+                  href={nav.href}
+                  className="text-gray-700 hover:text-blue-600"
+                >
+                  {nav.label}
+                </a>
+              </li>
             ))}
-          </ul>{" "}
-          {/* actions */}
+          </ul>
+
+          {/* Actions */}
+          <div className="flex items-center space-x-4">
+            <button className="text-gray-700 hover:text-blue-600">
+              {/* Cart Icon Placeholder */}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-6 h-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M3 3h2l.4 2M7 13h10l1.4-8H6.4M7 13l-1.5 6h11L17 13M7 13h10M7 13l1.4-8H6.4M7 13h10M5 21h14a1 1 0 001-1H4a1 1 0 001 1z"
+                />
+              </svg>
+            </button>
+          </div>
         </div>
-        
+
         {/* Desktop Header */}
+        <div className="items-center justify-between hidden p-6 md:flex">
+          {/* Logo */}
+          <div className="text-3xl font-bold text-blue-600">Logo</div>
+
+          {/* Navigation */}
+          <ul className="flex items-center space-x-8">
+            {navigation.map((nav) => (
+              <li key={nav.label}>
+                <a
+                  href={nav.href}
+                  className="text-gray-700 hover:text-blue-600"
+                >
+                  {nav.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+
+          {/* Actions */}
+          <div className="flex items-center space-x-6">
+            <button className="text-gray-700 hover:text-blue-600">
+              {/* Cart Icon Placeholder */}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-6 h-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M3 3h2l.4 2M7 13h10l1.4-8H6.4M7 13l-1.5 6h11L17 13M7 13h10M7 13l1.4-8H6.4M7 13h10M5 21h14a1 1 0 001-1H4a1 1 0 001 1z"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
       </MaxWidthContainer>
     </header>
   );
